@@ -1,11 +1,4 @@
-<<<<<<< HEAD
-var mapWin = Ti.UI.createWindow({
-	title : "Map Window"
-});
-exports.mapWin = mapWin;
-=======
 var currentWin = Ti.UI.currentWindow;
->>>>>>> FETCH_HEAD
 
 var holder = Ti.UI.createView({
 	height: 800,
@@ -22,11 +15,7 @@ var remoteResponse = function() {
 		population = response.results[i].geocode.population;
 		lat = response.results[i].geocode.latitude;
 		lng = response.results[i].geocode.longitude;
-<<<<<<< HEAD
-		dist = Math.round(response.results[i].geocode.distance/100)*100;
-=======
 		dist = response.results[i].geocode.distance;
->>>>>>> FETCH_HEAD
 		county = response.results[i].geocode.admin_name2;
 		info.push({
 			id: i + 1,
@@ -38,30 +27,16 @@ var remoteResponse = function() {
 			latitude: lat,
 		});
 	};
-	var Map = require('ti.map');
-	var mapview = Map.createView({mapType:Map.NORMAL_TYPE});
-<<<<<<< HEAD
-	mapWin.add(mapview);
-	// console.log(info);
-};
-exports.info = info;
-=======
-	currentWin.add(mapview);
 	console.log(info);
 	
 };
 
->>>>>>> FETCH_HEAD
 
 var remoteError = function(e) {
     Ti.API.debug("Status: " + this.status);
     Ti.API.debug("Text: " + this.responseText);
     Ti.API.debug("Error: " + e.error);
-<<<<<<< HEAD
-    alert("There is a problem pulling the data");
-=======
     alert("There's a problem pulling remote data");
->>>>>>> FETCH_HEAD
 };
 
 var xhr = Ti.Network.createHTTPClient({
@@ -93,17 +68,6 @@ var runGeo = function(){
 	});
 	
 };
-<<<<<<< HEAD
-=======
-var mapview = Titanium.Map.createView({
-    mapType: Titanium.Map.STANDARD_TYPE,
-    region:{latitude:33.74511, longitude:-84.38993, latitudeDelta:0.5, longitudeDelta:0.5},
-    animate:true,
-    regionFit:true,
-    userLocation:true
-});
-currentWin.add(mapview);
->>>>>>> FETCH_HEAD
 runGeo();
 
 
@@ -113,8 +77,4 @@ xhr.send();
 
 
 
-<<<<<<< HEAD
-mapWin.add(holder);
-=======
 currentWin.add(holder);
->>>>>>> FETCH_HEAD
