@@ -27,9 +27,6 @@ var remoteResponse = function() {
 			latitude: lat,
 		});
 	};
-	var Map = require('ti.map');
-	var mapview = Map.createView({mapType:Map.NORMAL_TYPE});
-	currentWin.add(mapview);
 	console.log(info);
 	
 };
