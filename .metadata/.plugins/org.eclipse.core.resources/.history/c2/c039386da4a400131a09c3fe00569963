@@ -1,0 +1,56 @@
+var currentWin = Ti.UI.currentWindow;
+
+var holder = Ti.UI.createScrollView({
+	height: 800,
+	bottom: 0,
+	width: Ti.UI.FILL,
+	contentWidth: Ti.Platform.displayCaps.platformWidth,
+	layout: "horizontal"
+});
+
+var response, listViews, headline, description, images, keywords;
+var remoteResponse = function() {
+    // Response function code
+	response = JSON.parse(this.responseText);
+};
+
+
+var remoteError = function(e) {
+    Ti.API.debug("Status: " + this.status);
+    Ti.API.debug("Text: " + this.responseText);
+    Ti.API.debug("Error: " + e.error);
+    alert("There's a problem pulling remote data");
+};
+
+var xhr = Ti.Network.createHTTPClient({
+    onload: remoteResponse,
+    onerror: remoteError,
+    timeout:5000
+});
+
+var runGeo = function(){
+	Ti.Geolocation.purpose = "Your location is needed to gather lat/long coords.";
+	Ti.Geolocation.getCurrentPosition(function(e){
+		var lat = e.coords.latitude;
+		var lng = e.coords.longitude;
+		var coordinateLabel = Ti.UI.createLabel({
+			color: '#fff',
+			text: 'Latitude: ' + lat + ', Longitude: ' + lng,
+			height: Ti.UI.SIZE,
+			textAlign: 'center',
+			font: {
+				fontSize: '20dp',
+				fontWeight: 'bold'
+			} 
+		});
+		holder.add(coordinateLabel);
+	});
+};
+Ti.Geolocation.addEventListener('location', runGeo);
+
+xhr.open("GET", "http://api.nytimes.com/svc/real-estate/v2/listings/count.xml?geo-extent-level=neighborhood&geo-extent-value=Washington+Heights&geo-summary-level=zip&date-range=2008-Q1&bedrooms=3&api-key=8779de40283254a4c873daf3da7e823b:5:68792990");
+xhr.send();
+
+
+
+currentWin.add(holder);
