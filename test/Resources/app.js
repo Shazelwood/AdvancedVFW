@@ -1,3 +1,6 @@
+var land = Ti.UI.createView({
+	backgroundImage: "lebron.jpg"
+});
 var mainWin = Ti.UI.createWindow({
 	title: "Main Window",
 	backgroundColor: "#535353"	,
@@ -14,5 +17,9 @@ var title = Ti.UI.createLabel({
 	},
 	top: 30
 });
-mainWin.add(title);
+mainWin.add(land, title);
 mainWin.open();
+
+
+
+ 

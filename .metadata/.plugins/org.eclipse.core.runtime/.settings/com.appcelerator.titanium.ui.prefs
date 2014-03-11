@@ -1,7 +1,11 @@
 =run
-LAST_LAUNCH_TIMESTAMP=1394149880321
+Android\ Emulator\ Process\:ConsoleLogLevel=Info
+Hierarchy\:launchMode=run
+Hierarchy\:launchShortcut=com.appcelerator.titanium.mobile.ui.ios.simulator.ipad.launchShortcut.iPad
+LAST_LAUNCH_TIMESTAMP=1394505622248
 NYTimesGEO\:launchMode=run
-NYTimesGEO\:launchShortcut=com.appcelerator.titanium.mobile.ui.ios.simulator.iphone.launchShortcut.iPhone Retina (4 inch)
+NYTimesGEO\:launchShortcut=com.appcelerator.titanium.mobile.ui.android.device.launchShortcut
 eclipse.preferences.version=1
+iOS\ build\ and\ deploy\:ConsoleLogLevel=Info
 preference.show.console.onError=true
 preference.studio.perspective.version=103

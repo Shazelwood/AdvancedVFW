@@ -2,6 +2,7 @@
 <launchConfiguration type="com.appcelerator.titanium.mobile.ui.android.installer.launchConfigurationType">
 <stringAttribute key="ATTR_PROJECT_NAME" value="NYTimesGEO"/>
 <stringAttribute key="abi" value="armeabi"/>
+<stringAttribute key="device-id" value="03bbb4a94381c382"/>
 <listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_PATHS">
 <listEntry value="/NYTimesGEO"/>
 </listAttribute>

@@ -1,0 +1,15 @@
+var mainWin = Ti.UI.createWindow({
+	title: "Hierarchy",
+	backgroundColor: "#FFF"
+});
+
+var label1 = Ti.UI.createLabel({
+	text: "40 Helvetica Light",
+	font: {
+		fontSize: 40,
+		fontFamily: "Helvetica",
+	}
+});
+
+mainWin.add(label1);
+mainWin.open();

@@ -1,0 +1,15 @@
+var mainWin = Ti.UI.createWindow({
+	title: "Hierarchy",
+	backgroundColor: "#FFF"
+});
+
+var label1 = Ti.UI.createLabel({
+	color: "black",
+	font: {
+		fontSize: 40,
+		fontFamily: "roboto thin",
+	}
+});
+
+mainWin.add(label1);
+mainWin.open();

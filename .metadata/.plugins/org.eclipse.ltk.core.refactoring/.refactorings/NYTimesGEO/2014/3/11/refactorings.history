@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;NYTimesGEO/Resources/Geo FLow&apos; to &apos;Extra&apos;" description="Rename resource &apos;Geo FLow&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="Resources/Geo FLow" name="Extra" stamp="1394505645935" updateReferences="true"/>
+</session>
