@@ -1,0 +1,86 @@
+var currentWin = Ti.UI.currentWindow;
+var Cloud = require('ti.cloud');
+var dataB = Ti.Database.open("UserDB");
+dataB.execute("CREATE TABLE IF NOT EXISTS user(id INTEGER PRIMARY KEY, firstname TEXT, lastname TEXT)");
+var table = Ti.UI.createTableView();
+var buildRow = function () {
+	var data = [];
+	var test = dataB.execute("SELECT * FROM user");
+	
+	while (test.isValidRow()) {
+		var firstname = test.fieldByName('firstname');
+		var lastname = test.fieldByName('lastname');
+		var id = test.fieldByName('id');
+
+		data.push({
+			firstname : name,
+			lastname : state,
+			title : firstname + " " + lastname,
+			id : id
+		});
+		test.next();
+	};
+	return data;
+};
+
+var holder = Ti.UI.createScrollView({
+	backgroundColor: "#7f93cc",
+	top: 100,
+	bottom: 0,
+	width: Ti.FILL,
+	layout: "horizontal",
+	contentWidth: Ti.Platform.displayCaps.platformWidth
+});
+var header = Ti.UI.createLabel({
+	text: "User",
+	font:{
+		fontSize: 60,
+		fontFamily: "Helvetica Neue Thin"
+	},
+	top: 80,
+	color: "#001245"
+});
+
+Cloud.Users.query({
+    page: 1,
+    per_page: 10,
+}, function (e) {
+    if (e.success) {
+        alert('Success:\n' +
+            'Count: ' + e.users.length);
+        for (var i = 0; i < e.users.length; i++) {
+            var user = e.users[i];
+            var label = Ti.UI.createLabel({
+            	text: user.first_name + " " + user.last_name,
+            	color: "#000"
+            });	
+            var row = Ti.UI.createView({
+            	backgroundColor: "#FFF",
+            	height: "20%",
+            	left: 40,	
+            	right: 40
+            });
+            var image = Ti.UI.createImageView({
+            	image: "http://dogvacay.com/img/default_profile.jpg",
+            	backgroundColor: "#000",
+            	height: "80%",
+            	left: 10,
+            	width: "35%"
+            });
+            row.add(image);
+            row.add(label);
+            holder.add(row);
+            row.addEventListener("click", function(e){
+            	dataB.execute("INSERT INTO user(firstname,lastname,) VALUES (?,?)", e.user.first_name, e.user.last_name);
+            });
+            table.setData(buildRow());
+		}
+    } else {
+        alert('Error:\n' +
+            ((e.error && e.message) || JSON.stringify(e)));
+    }
+});
+
+
+currentWin.add(holder);
+//currentWin.add(cam);

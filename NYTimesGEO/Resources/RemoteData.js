@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 var search = require("search");
 var mapWin = Ti.UI.createWindow({
 	title : "Map Window",
@@ -7,6 +8,8 @@ var mapWin = Ti.UI.createWindow({
 exports.mapWin = mapWin;
 =======
 <<<<<<< HEAD
+=======
+>>>>>>> FETCH_HEAD
 var mapWin = Ti.UI.createWindow({
 	title : "Map Window"
 });
@@ -179,11 +182,14 @@ var runGeo = function(){
 	
 };
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 runGeo();
 mapWin.add(holder);
 =======
 <<<<<<< HEAD
+=======
+>>>>>>> FETCH_HEAD
 =======
 var mapview = Titanium.Map.createView({
     mapType: Titanium.Map.STANDARD_TYPE,
@@ -208,4 +214,7 @@ mapWin.add(holder);
 =======
 currentWin.add(holder);
 >>>>>>> FETCH_HEAD
+<<<<<<< HEAD
+>>>>>>> FETCH_HEAD
+=======
 >>>>>>> FETCH_HEAD

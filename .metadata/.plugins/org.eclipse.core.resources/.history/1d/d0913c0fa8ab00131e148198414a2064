@@ -1,0 +1,49 @@
+currentWin = Ti.UI.currentWindow;
+var Cloud = require('ti.cloud');
+
+var holder = Ti.UI.createScrollView({	
+	backgroundColor: "#FFF",
+    contentWidth: 'auto',
+    contentHeight: 'auto',
+    top: 30,
+    bottom: 0,
+    showVerticalScrollIndicator: true,
+    showHorizontalScrollIndicator: true
+});
+ 
+var usernameField = Titanium.UI.createTextField({
+    hintText:"Username",
+    height:35,
+    top: 250,
+    width:250,
+    blur:true,
+    borderStyle:Titanium.UI.INPUT_BORDERSTYLE_ROUNDED
+});
+
+var passwordField = Titanium.UI.createTextField({
+    hintText:"Password",
+    height:35,
+    top:300,
+    width:250,
+    blur:true,
+    borderStyle:Titanium.UI.INPUT_BORDERSTYLE_ROUNDED
+});
+
+var signInText = Ti.UI.createLabel({
+	text: "Sign on",
+	backgroundColor: "#FFF"
+});
+
+var signIn = Ti.UI.createView({
+	height: 35,
+	top: 400,
+	width: 250,
+	backgroundColor: "#001245",
+	borderRadius: 6
+});
+signIn.add(signInText);
+
+//When long in is clicked, color changes to 032ca2
+currentWin.add(passwordField);
+currentWin.add(usernameField);
+currentWin.add(signIn);

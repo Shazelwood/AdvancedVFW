@@ -1,0 +1,230 @@
+var currentWin = Ti.UI.currentWindow;
+
+var win = Titanium.UI.currentWindow;
+var scrollView = Titanium.UI.createScrollView({
+    contentWidth: 'auto',
+    contentHeight: 'auto',
+    top: 0,
+    bottom: 0,
+    showVerticalScrollIndicator: true,
+    showHorizontalScrollIndicator: true
+});
+ 
+win.add(scrollView);
+ 
+var a = Titanium.UI.createAlertDialog({
+    title:'Alert Test',
+    message:'Hello World'
+});
+ 
+var contactUs = Titanium.UI.createLabel({
+    color:'#999',
+    text:"",
+    top:10,
+    left:10,
+    width:300,
+    font:{fontSize:15,fontFamily:'Helvetica Neue'},
+    height:'auto'
+});
+ 
+var contactName = Titanium.UI.createLabel({
+    color:'#fff',
+    text:'Name',
+    top:290,
+    left:30,
+    width:100,
+    height:'auto'
+});
+ 
+var contactNameField = Titanium.UI.createTextField({
+    hintText:'enter name',
+    height:35,
+    top:315,
+    left:30,
+    width:250,
+    borderStyle:Titanium.UI.INPUT_BORDERSTYLE_ROUNDED
+});
+ 
+var emailName = Titanium.UI.createLabel({
+    color:'#fff',
+    text:'Email Address',
+    top:355,
+    left:30,
+    width:200,
+    height:'auto'
+});
+ 
+var emailField = Titanium.UI.createTextField({
+    hintText:'enter email address',
+    height:35,
+    top:380,
+    left:30,
+    width:250,
+    borderStyle:Titanium.UI.INPUT_BORDERSTYLE_ROUNDED
+});
+ 
+var phoneNumber = Titanium.UI.createLabel({
+    color:'#fff',
+    text:'Phone Number',
+    top:420,
+    left:30,
+    width:200,
+    height:'auto'
+});
+ 
+var phoneNumberField = Titanium.UI.createTextField({
+    hintText:'enter phone number',
+    height:35,
+    top:445,
+    left:30,
+    width:250,
+    borderStyle:Titanium.UI.INPUT_BORDERSTYLE_ROUNDED,
+    keyboardType:Titanium.UI.KEYBOARD_PHONE_PAD,
+    returnKeyType:Titanium.UI.RETURNKEY_DONE
+});
+ 
+var contactHow = Titanium.UI.createLabel({
+    color:'#fff',
+    text:'Best way to contact you',
+    top:485,
+    left:30,
+    width:200,
+    height:'auto'
+});
+ 
+var contactHowField = Titanium.UI.createTextField({
+    hintText:"Best way to contact you",
+    height:35,
+    top:510,
+    left:30,
+    width:250,
+    blur:true,
+    borderStyle:Titanium.UI.INPUT_BORDERSTYLE_ROUNDED
+});
+ 
+var eventDate = Titanium.UI.createLabel({
+    color:'#fff',
+    text:'Date of Event',
+    top:550,
+    left:30,
+    width:200,
+    height:'auto'
+});
+ 
+var eventDateField = Titanium.UI.createTextField({
+    hintText:"Date of Event",
+    height:35,
+    top:575,
+    left:30,
+    width:250,
+    blur:true,
+    borderStyle:Titanium.UI.INPUT_BORDERSTYLE_ROUNDED
+});
+ 
+var eventType = Titanium.UI.createLabel({
+    color:'#fff',
+    text:'Type of Event',
+    top:615,
+    left:30,
+    width:200,
+    height:'auto'
+});
+ 
+var eventTypeField = Titanium.UI.createTextField({
+    hintText:"Type of Event",
+    height:35,
+    top:640,
+    left:30,
+    width:250,
+    blur:true,
+    borderStyle:Titanium.UI.INPUT_BORDERSTYLE_ROUNDED
+});
+ 
+var budgetAmount = Titanium.UI.createLabel({
+    color:'#fff',
+    text:'What is your budget',
+    top:680,
+    left:30,
+    width:200,
+    height:'auto'
+});
+ 
+var budgetAmountField = Titanium.UI.createTextField({
+    hintText:"What is your budget",
+    height:35,
+    top:705,
+    left:30,
+    width:250,
+    blur:true,
+    borderStyle:Titanium.UI.INPUT_BORDERSTYLE_ROUNDED
+});
+ 
+eventDateField.addEventListener('focus',function(e){
+    Titanium.API.info('Triggered focus on date txtField');
+    eventDateField.blur();
+ 
+    var winDatePicker = Titanium.UI.currentWindow;
+    winDatePicker.backgroundColor = 'black';
+ 
+    var minDate = new Date();
+ 
+    var maxDate = new Date();
+    maxDate.setFullYear(2020);
+    maxDate.setMonth(11);
+    maxDate.setDate(31);
+ 
+        var value = new Date();
+ 
+        var datePicker = Ti.UI.createPicker({
+            type:Ti.UI.PICKER_TYPE_DATE,
+            minDate:minDate,
+            maxDate:maxDate,
+            bottom:0,
+            value:value
+        });
+ 
+        var doneBtn = Ti.UI.createButton({
+          title: 'Done',
+          style:Ti.UI.iPhone.SystemButton.SAVE
+        });
+ 
+        doneBtn.addEventListener('click',function(){
+          winDatePicker.hide();
+        });
+ 
+        winDatePicker.rightNavButton = doneBtn;
+ 
+        // turn on the selection indicator (off by default)
+        datePicker.selectionIndicator = true;
+ 
+    datePicker.addEventListener('change',function(e){
+        Titanium.API.info('E value = '+e.value);
+        var pickerDate = e.value;
+        var day = pickerDate.getDate();
+        day = day.toString();
+ 
+                if (day.length < 2) {
+                  day = '0' + day;
+ 
+                }
+ 
+            var month = pickerDate.getMonth();
+            month = month + 1;
+            month = month.toString();
+ 
+            if (month.length < 2) {
+                month = '0' + month;
+            }
+ 
+            var year = pickerDate.getFullYear();
+            var newdate = month + "-" + day + "-" + year;
+ 
+        Titanium.API.info('converted value = '+newdate);
+        eventDateField.setValue(newdate);
+    });
+ 
+        winDatePicker.add(datePicker);
+    winDatePicker.show({ view: eventDateField,animated: true});
+});
+ 
+scrollView.add(contactUs,budgetAmountField,budgetAmount,eventTypeField,eventType,eventDateField,eventDate,contactHowField,contactHow,phoneNumberField,phoneNumber,emailField,emailName,contactNameField,contactName);

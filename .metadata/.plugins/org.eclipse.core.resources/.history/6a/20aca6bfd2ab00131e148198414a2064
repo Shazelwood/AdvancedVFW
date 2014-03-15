@@ -1,0 +1,112 @@
+var currentWin = Ti.UI.currentWindow;
+var Cloud = require('ti.cloud');
+
+var holder = Ti.UI.createScrollView({
+	backgroundColor: "red",
+	top: 100,
+	bottom: 0,
+	width: Ti.FILL,
+	layout: "horizontal",
+	contentWidth: Ti.Platform.displayCaps.platformWidth
+});
+
+// var cam = Ti.UI.createButton({
+	// title: "Camera",
+	// top: 20
+// });
+// var images = [];
+// 
+// cam.addEventListener("click", function(){
+// 	
+	// Ti.Media.showCamera({	
+		// success:function(event){
+// 			
+			// Ti.API.debug('Our type was:' + event.mediaType);
+			// if(event.mediaType == Ti.Media.MEDIA_TYPE_PHOTO){
+				// var imageView = Ti.UI.createImageView({
+					// width: win.width,
+					// height: win.height,
+					// image: event.media
+				// });
+				// images.push(imageView);
+				// for(i = 0; i < images.length; i++){
+					// var views = Ti.UI.createView({
+						// height: 200,
+						// width: 200,
+						// top: 20,
+						// left:20,
+						// backgroundColor: "red"
+					// });
+				// }
+				// views.add(imageView);
+				// holder.add(views);
+			// }else{
+				// alert("got the wrong type back = " + event.mediaType);
+			// }
+		// },
+		// cancel: function(){
+// 			
+		// },
+		// error:function(error){
+// 			
+			// var a = Ti.UI.createAlertDialog({
+				// title:'Camera'
+			// });
+			// if (error.code == Ti.Media.NO_CAMERA){
+				// a.setMessage('Please run this test on device');
+			// }else{
+				// a.setMessage('Unexpected error: ' + error.code);
+			// }
+			// a.show();
+		// },
+		// saveToPhotoGallery:true,
+		// allowEditing:true,
+		// mediaTypes:[Ti.Media.MEDIA_TYPE_VIDEO, Ti.Media.MEDIA_TYPE_PHOTO]
+	// });
+// 		
+// });
+holder.addEventListener("click", function(){
+	Cloud.Users.query({
+	    page: 1,
+	    per_page: 10,
+	}, function (e) {
+	    if (e.success) {
+	        alert('Success:\n' +
+	            'Count: ' + e.users.length);
+	        for (var i = 0; i < e.users.length; i++) {
+	            var user = e.users[i];
+	            var label = Ti.UI.createView({
+	            	text: user,
+	            	color: "#000"
+	            });	
+	            var row = Ti.UI.createView({
+	            	backgroundColor: "#FFF",
+	            	height: "20%",
+	            	left: 40,
+	            	right: 40
+	            });
+	            var image = Ti.UI.createImageView({
+	            	image: "http://dogvacay.com/img/default_profile.jpg",
+	            	backgroundColor: "#000",
+	            	height: "80%",
+	            	left: 10,
+	            	width: "35%"
+	            });
+	            row.add(image);
+	            row.add(label);
+	            holder.add(row);
+	            
+	            // alert('id: ' + user.id + '\n' +
+	                // 'first name: ' + user.first_name + '\n' +
+	                // 'last name: ' + user.last_name);
+	         }
+	    } else {
+	        alert('Error:\n' +
+	            ((e.error && e.message) || JSON.stringify(e)));
+	    }
+	});
+});
+
+
+currentWin.add(holder);
+//currentWin.add(cam);

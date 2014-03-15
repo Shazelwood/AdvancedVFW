@@ -2,6 +2,7 @@
 //requiring JS files
 var map = require('RemoteData');
 var see = require('search');
+<<<<<<< HEAD
 var fav = require('fav');
 
 //Create Window
@@ -10,6 +11,8 @@ var fav = require('fav');
 //requiring JS files
 var map = require('RemoteData');
 var see = require('search');
+=======
+>>>>>>> FETCH_HEAD
 
 //Create Window
 var mainWin = Ti.UI.createWindow({
@@ -69,6 +72,9 @@ titleView.add(titleLabel, enterBTN);
 //Window Main Code
 mainWin.add(titleView);
 mainWin.open(); 
+=======
+<<<<<<< HEAD
+>>>>>>> FETCH_HEAD
 =======
 >>>>>>> FETCH_HEAD
 var mainWin = Ti.UI.createWindow({

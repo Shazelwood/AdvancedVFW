@@ -1,6 +1,12 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 var dataB = Ti.Database.open('GeoDB');
 dataB.execute('CREATE TABLE IF NOT EXISTS location(id INTEGER PRIMARY KEY, name TEXT, population TEXT, longitude INTEGER, latitude INTEGER, distance TEXT, county TEXT, state TEXT)');
+=======
+//requiring JS files
+var box = require('storage');
+var map = require('RemoteData');
+>>>>>>> FETCH_HEAD
 =======
 //requiring JS files
 var box = require('storage');
@@ -15,6 +21,7 @@ var sWin = Ti.UI.createWindow({
 exports.sWin = sWin;
 //Window End
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 //Search Bar Start
 var searchbar = Ti.UI.createSearchBar({
@@ -170,6 +177,8 @@ timesTable.addEventListener('click', function(e) {
 
 sWin.add(timesTable);
 =======
+=======
+>>>>>>> FETCH_HEAD
 //save button start
 var saveBTN = Ti.UI.createButton({
 	title : 'SAVE',
@@ -265,5 +274,8 @@ var distLabel = Ti.UI.createLabel({
 //EventListener Main Code
 sWin.add(cancelBTN, saveBTN);
 // evtWin.add(mapView, titleView, countyLabel, latLabel, lngLabel, countryLabel, distLabel);
+<<<<<<< HEAD
+>>>>>>> FETCH_HEAD
+=======
 >>>>>>> FETCH_HEAD
 sWin.open();

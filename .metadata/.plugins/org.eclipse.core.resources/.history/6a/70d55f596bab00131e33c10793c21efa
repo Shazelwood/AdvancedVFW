@@ -1,0 +1,253 @@
+var currentWin = Ti.UI.currentWindow;
+
+var win = Titanium.UI.currentWindow;
+var scrollView = Titanium.UI.createScrollView({
+    contentWidth: 'auto',
+    contentHeight: 'auto',
+    top: 0,
+    bottom: 0,
+    showVerticalScrollIndicator: true,
+    showHorizontalScrollIndicator: true
+});
+ 
+win.add(scrollView);
+ 
+var a = Titanium.UI.createAlertDialog({
+    title:'Alert Test',
+    message:'Hello World'
+});
+ 
+var contactUs = Titanium.UI.createLabel({
+    color:'#999',
+    text:"",
+    top:10,
+    left:10,
+    width:300,
+    font:{fontSize:15,fontFamily:'Helvetica Neue'},
+    height:'auto'
+});
+ 
+var contactName = Titanium.UI.createLabel({
+    color:'#fff',
+    text:'First',
+    top:290,
+    left:30,
+    width:100,
+    height:'auto'
+});
+ 
+var contactNameField = Titanium.UI.createTextField({
+    hintText:'Shae',
+    height:35,
+    top:315,
+    left:30,
+    width:250,
+    borderStyle:Titanium.UI.INPUT_BORDERSTYLE_ROUNDED
+});
+ 
+var emailName = Titanium.UI.createLabel({
+    color:'#fff',
+    text:'Last',
+    top:355,
+    left:30,
+    width:200,
+    height:'auto'
+});
+ 
+var emailField = Titanium.UI.createTextField({
+    hintText:'Hazelwood',
+    height:35,
+    top:380,
+    left:30,
+    width:250,
+    borderStyle:Titanium.UI.INPUT_BORDERSTYLE_ROUNDED
+});
+ 
+var phoneNumber = Titanium.UI.createLabel({
+    color:'#fff',
+    text:'Email Address',
+    top:420,
+    left:30,
+    width:200,
+    height:'auto'
+});
+ 
+var phoneNumberField = Titanium.UI.createTextField({
+    hintText:'email@',
+    height:35,
+    top:445,
+    left:30,
+    width:250,
+    borderStyle:Titanium.UI.INPUT_BORDERSTYLE_ROUNDED,
+    keyboardType:Titanium.UI.KEYBOARD_PHONE_PAD,
+    returnKeyType:Titanium.UI.RETURNKEY_DONE
+});
+ 
+var contactHow = Titanium.UI.createLabel({
+    color:'#fff',
+    text:'username',
+    top:485,
+    left:30,
+    width:200,
+    height:'auto'
+});
+ 
+var contactHowField = Titanium.UI.createTextField({
+    hintText:"Shazelwood1995",
+    height:35,
+    top:510,
+    left:30,
+    width:250,
+    blur:true,
+    borderStyle:Titanium.UI.INPUT_BORDERSTYLE_ROUNDED
+});
+ 
+var eventDate = Titanium.UI.createLabel({
+    color:'#fff',
+    text:'Password',
+    top:550,
+    left:30,
+    width:200,
+    height:'auto'
+});
+ 
+var eventDateField = Titanium.UI.createTextField({
+    hintText:"**********",
+    height:35,
+    top:575,
+    left:30,
+    width:250,
+    blur:true,
+    borderStyle:Titanium.UI.INPUT_BORDERSTYLE_ROUNDED
+});
+ 
+var eventType = Titanium.UI.createLabel({
+    color:'#fff',
+    text:'Re-Type Password',
+    top:615,
+    left:30,
+    width:200,
+    height:'auto'
+});
+ 
+var eventTypeField = Titanium.UI.createTextField({
+    hintText:"*********",
+    height:35,
+    top:640,
+    left:30,
+    width:250,
+    blur:true,
+    borderStyle:Titanium.UI.INPUT_BORDERSTYLE_ROUNDED
+});
+ 
+var budgetAmount = Titanium.UI.createLabel({
+    color:'#fff',
+    text:'What is your budget',
+    top:680,
+    left:30,
+    width:200,
+    height:'auto'
+});
+ 
+var budgetAmountField = Titanium.UI.createTextField({
+    hintText:"What is your budget",
+    height:35,
+    top:705,
+    left:30,
+    width:250,
+    blur:true,
+    borderStyle:Titanium.UI.INPUT_BORDERSTYLE_ROUNDED
+});
+
+//Create a dialog with options
+var dialog = Titanium.UI.createOptionDialog({
+    //title of dialog
+    title: 'Choose an image source...',
+    //options
+    options: ['Camera','Photo Gallery', 'Cancel'],
+    //index of cancel button
+    cancel:2
+});
+ 
+//add event listener
+dialog.addEventListener('click', function(e) {
+    //if first option was selected
+    if(e.index == 0)
+    {
+        //then we are getting image from camera
+        Titanium.Media.showCamera({
+            //we got something
+            success:function(event)
+            {
+                //getting media
+                var image = event.media; 
+                 
+                //checking if it is photo
+                if(event.mediaType == Ti.Media.MEDIA_TYPE_PHOTO)
+                {
+                    //we may create image view with contents from image variable
+                    //or simply save path to image
+                    Ti.App.Properties.setString("image", image.nativePath);
+                }
+            },
+            cancel:function()
+            {
+                //do somehting if user cancels operation
+            },
+            error:function(error)
+            {
+                //error happend, create alert
+                var a = Titanium.UI.createAlertDialog({title:'Camera'});
+                //set message
+                if (error.code == Titanium.Media.NO_CAMERA)
+                {
+                    a.setMessage('Device does not have camera');
+                }
+                else
+                {
+                    a.setMessage('Unexpected error: ' + error.code);
+                }
+ 
+                // show alert
+                a.show();
+            },
+            allowImageEditing:true,
+            saveToPhotoGallery:true
+        });
+    }
+    else if(e.index == 1)
+    {
+        //obtain an image from the gallery
+        Titanium.Media.openPhotoGallery({
+            success:function(event)
+            {
+                //getting media
+                var image = event.media; 
+                // set image view
+                 
+                //checking if it is photo
+                if(event.mediaType == Ti.Media.MEDIA_TYPE_PHOTO)
+                {
+                    //we may create image view with contents from image variable
+                    //or simply save path to image
+                    Ti.App.Properties.setString("image", image.nativePath); 
+                }   
+            },
+            cancel:function()
+            {
+                //user cancelled the action fron within
+                //the photo gallery
+            }
+        });
+    }
+    else
+    {
+        //cancel was tapped
+        //user opted not to choose a photo
+    }
+});
+ 
+//show dialog
+dialog.show();
+ 
+scrollView.add(dialog,contactUs,budgetAmountField,budgetAmount,eventTypeField,eventType,eventDateField,eventDate,contactHowField,contactHow,phoneNumberField,phoneNumber,emailField,emailName,contactNameField,contactName);

@@ -1,0 +1,207 @@
+var currentWin = Ti.UI.currentWindow;
+
+var win = Titanium.UI.currentWindow;
+var scrollView = Titanium.UI.createScrollView({
+    contentWidth: 'auto',
+    contentHeight: 'auto',
+    top: 0,
+    bottom: 0,
+    showVerticalScrollIndicator: true,
+    showHorizontalScrollIndicator: true
+});
+ 
+win.add(scrollView);
+ 
+var a = Titanium.UI.createAlertDialog({
+    title:'Alert Test',
+    message:'Hello World'
+});
+ 
+var contactUs = Titanium.UI.createLabel({
+    color:'#999',
+    text:"",
+    top:10,
+    left:10,
+    width:300,
+    font:{fontSize:15,fontFamily:'Helvetica Neue'},
+    height:'auto'
+});
+ 
+var firstName = Titanium.UI.createLabel({
+    color:'#fff',
+    text:'First',
+    top:290,
+    left:30,
+    width:100,
+    height:'auto'
+});
+ 
+var firstNameField = Titanium.UI.createTextField({
+    hintText:'Shae',
+    height:35,
+    top:315,
+    left:30,
+    width:250,
+    borderStyle:Titanium.UI.INPUT_BORDERSTYLE_ROUNDED
+});
+ 
+var lastName = Titanium.UI.createLabel({
+    color:'#fff',
+    text:'Last',
+    top:355,
+    left:30,
+    width:200,
+    height:'auto'
+});
+ 
+var lastNameField = Titanium.UI.createTextField({
+    hintText:'Hazelwood',
+    height:35,
+    top:380,
+    left:30,
+    width:250,
+    borderStyle:Titanium.UI.INPUT_BORDERSTYLE_ROUNDED
+});
+ 
+var email = Titanium.UI.createLabel({
+    color:'#fff',
+    text:'Email Address',
+    top:420,
+    left:30,
+    width:200,
+    height:'auto'
+});
+ 
+var emailField = Titanium.UI.createTextField({
+    hintText:'email@',
+    height:35,
+    top:445,
+    left:30,
+    width:250,
+    borderStyle:Titanium.UI.INPUT_BORDERSTYLE_ROUNDED,
+    keyboardType:Titanium.UI.KEYBOARD_PHONE_PAD,
+    returnKeyType:Titanium.UI.RETURNKEY_DONE
+});
+ 
+var username = Titanium.UI.createLabel({
+    color:'#fff',
+    text:'username',
+    top:485,
+    left:30,
+    width:200,
+    height:'auto'
+});
+ 
+var usernameField = Titanium.UI.createTextField({
+    hintText:"Shazelwood1995",
+    height:35,
+    top:510,
+    left:30,
+    width:250,
+    blur:true,
+    borderStyle:Titanium.UI.INPUT_BORDERSTYLE_ROUNDED
+});
+ 
+var password = Titanium.UI.createLabel({
+    color:'#fff',
+    text:'Password',
+    top:550,
+    left:30,
+    width:200,
+    height:'auto'
+});
+ 
+var passwordField = Titanium.UI.createTextField({
+    hintText:"**********",
+    height:35,
+    top:575,
+    left:30,
+    width:250,
+    blur:true,
+    borderStyle:Titanium.UI.INPUT_BORDERSTYLE_ROUNDED
+});
+ 
+var passwordCheck = Titanium.UI.createLabel({
+    color:'#fff',
+    text:'Re-Type Password',
+    top:615,
+    left:30,
+    width:200,
+    height:'auto'
+});
+ 
+var passwordCheckField = Titanium.UI.createTextField({
+    hintText:"*********",
+    height:35,
+    top:640,
+    left:30,
+    width:250,
+    blur:true,
+    borderStyle:Titanium.UI.INPUT_BORDERSTYLE_ROUNDED
+});
+ 
+var dialog = Titanium.UI.createOptionDialog({
+    title: 'Choose an image source...',
+    options: ['Camera','Photo Gallery', 'Cancel'],
+    cancel:2
+});
+ 
+dialog.addEventListener('click', function(e) {
+    if(e.index == 0)
+    {
+        Titanium.Media.showCamera({
+            success:function(event)
+            {
+                var image = event.media; 
+                if(event.mediaType == Ti.Media.MEDIA_TYPE_PHOTO)
+                {
+                    Ti.App.Properties.setString("image", image.nativePath);
+                }
+            },
+            cancel:function()
+            {
+                //do somehting if user cancels operation
+            },
+            error:function(error)
+            {
+                var a = Titanium.UI.createAlertDialog({title:'Camera'});
+                if (error.code == Titanium.Media.NO_CAMERA)
+                {
+                    a.setMessage('Device does not have camera');
+                }
+                else
+                {
+                    a.setMessage('Unexpected error: ' + error.code);
+                }
+                a.show();
+            },
+            allowImageEditing:true,
+            saveToPhotoGallery:true
+        });
+    }
+    else if(e.index == 1)
+    {
+        Titanium.Media.openPhotoGallery({
+            success:function(event)
+            {
+                var image = event.media; 
+                if(event.mediaType == Ti.Media.MEDIA_TYPE_PHOTO)
+                {
+                   Ti.App.Properties.setString("image", image.nativePath); 
+                }   
+            },
+            cancel:function()
+            {
+                
+            }
+        });
+    }
+    else
+    {
+        //cancel was tapped
+        //user opted not to choose a photo
+    }
+});
+dialog.show();
+ 
+scrollView.add(contactUs,budgetAmountField,budgetAmount,passwordCheckField,passwordCheck,passwordField,password,usernameField,username,emailField,email,lastNameField,lastName,firstNameField,firstName);

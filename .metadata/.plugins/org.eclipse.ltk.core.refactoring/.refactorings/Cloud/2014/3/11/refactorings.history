@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;Cloud/Resources/logIn.js&apos; to &apos;form.js&apos;" description="Rename resource &apos;logIn.js&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="Resources/logIn.js" name="form.js" stamp="1394657026995" updateReferences="true"/>
+</session>
