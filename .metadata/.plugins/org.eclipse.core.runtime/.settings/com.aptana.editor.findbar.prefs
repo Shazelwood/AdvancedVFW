@@ -1,2 +1,3 @@
-FIND_BAR_DECORATOR_FIND_ENTRIES=\#\n\#Sun Mar 09 18\:25\:26 EDT 2014\n9\=dataB\n8\=geo\n7\=box\n6\=wowData\n5\=table\n13\=mapWin\n4\=tableData\n12\=holder\n3\=pop\n11\=search\n2\=data\n10\=cp\n1\=teamTable.setData(buildRow());\n0\=population\n
+FIND_BAR_DECORATOR_FIND_ENTRIES=\#\n\#Fri Mar 14 08\:39\:00 EDT 2014\n8\=box\n7\=wowData\n6\=table\n5\=tableData\n4\=pop\n3\=data\n2\=teamTable.setData(buildRow());\n1\=population\n0\=color\\\:'\\\#fff',\n
+FIND_BAR_DECORATOR_REPLACE_ENTRIES=\#\n\#Fri Mar 14 08\:39\:00 EDT 2014\n0\=color\\\:'\\\#001245',\n
 eclipse.preferences.version=1

@@ -1,6 +1,17 @@
 var currentWin = Ti.UI.currentWindow;
 var Cloud = require('ti.cloud');
 
+var cancel = Ti.UI.createButton({
+	top: 600,
+	right: 50, 
+	title: "cancel"
+});
+
+cancel.addEventListener("click", function(){
+	currentWin.close();
+});
+
+
 
 var scrollView = Titanium.UI.createScrollView({
 	backgroundColor: "#FFF",
@@ -145,6 +156,7 @@ var profilePic = Ti.UI.createImageView({
 
 var createBTN = Ti.UI.createButton({
 	top: 600, 
+	left: 50,
 	title: "Create User"
 });
 
@@ -253,7 +265,7 @@ createBTN.addEventListener("click", function(){
 });
 
 
-
+scrollView.add(cancel);
 scrollView.add(createBTN);
 scrollView.add(passwordCheckField);
 scrollView.add(passwordCheck);

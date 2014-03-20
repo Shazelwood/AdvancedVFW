@@ -1,18 +1,7 @@
-<<<<<<< HEAD
 //requiring JS files
 var map = require('RemoteData');
 var see = require('search');
-<<<<<<< HEAD
 var fav = require('fav');
-
-//Create Window
-=======
-<<<<<<< HEAD
-//requiring JS files
-var map = require('RemoteData');
-var see = require('search');
-=======
->>>>>>> FETCH_HEAD
 
 //Create Window
 var mainWin = Ti.UI.createWindow({
@@ -30,7 +19,7 @@ var titleView = Ti.UI.createView({
 });
 
 var titleLabel = Ti.UI.createLabel({
-	text : "Location, Location",
+	text : "GEOloc Places",
 	font : {
 		fontStyle : 'Helvetica',
 		fontSize : 36
@@ -40,69 +29,11 @@ var titleLabel = Ti.UI.createLabel({
 var enterBTN = Ti.UI.createButton({
 	title : 'ENTER',
 	bottom : '10%',
-	center : '0%'
-});
-
-enterBTN.addEventListener('click', function() {
-	
-	// created tab group
-	var theTabs = Ti.UI.createTabGroup();
-
-	// created character tab
-	var mapTab = Ti.UI.createTab({
-		title : 'Map',
-		window : map.mapWin
-	});
-
-	// created favorite tab
-	var favTab = Ti.UI.createTab({
-		title : 'Search',
-		window : see.sWin
-	});
-
-	//Tabs Main Code
-	theTabs.addTab(mapTab);
-	theTabs.addTab(favTab);
-	theTabs.open();
-});
-
-titleView.add(titleLabel, enterBTN);
-//view end
-
-//Window Main Code
-mainWin.add(titleView);
-mainWin.open(); 
-=======
-<<<<<<< HEAD
->>>>>>> FETCH_HEAD
-=======
->>>>>>> FETCH_HEAD
-var mainWin = Ti.UI.createWindow({
-	title : "Main Window",
-	backgroundImage : "map.png"
-});
-
-//view start
-var titleView = Ti.UI.createView({
-	borderRadius : '5%',
 	center : '0%',
-	height : '40%',
-	width : '60%',
-	backgroundColor : '#fff'
-});
-
-var titleLabel = Ti.UI.createLabel({
-	text : "Location, Location",
 	font : {
 		fontStyle : 'Helvetica',
-		fontSize : 36
+		fontSize : 22
 	}
-});
-
-var enterBTN = Ti.UI.createButton({
-	title : 'ENTER',
-	bottom : 10,
-	// center : '0%'
 });
 
 enterBTN.addEventListener('click', function() {
@@ -118,7 +49,7 @@ enterBTN.addEventListener('click', function() {
 
 	// created favorite tab
 	var sTab = Ti.UI.createTab({
-		title : 'Search',
+		title : 'Form',
 		window : see.sWin
 	});
 
@@ -140,4 +71,3 @@ titleView.add(titleLabel, enterBTN);
 //Window Main Code
 mainWin.add(titleView);
 mainWin.open();
->>>>>>> FETCH_HEAD

@@ -3,25 +3,6 @@ var Cloud = require('ti.cloud');
 var dataB = Ti.Database.open("UserDB");
 dataB.execute("CREATE TABLE IF NOT EXISTS user(id INTEGER PRIMARY KEY, firstname TEXT, lastname TEXT)");
 var table = Ti.UI.createTableView();
-var buildRow = function () {
-	var data = [];
-	var test = dataB.execute("SELECT * FROM user");
-	
-	while (test.isValidRow()) {
-		var firstname = test.fieldByName('firstname');
-		var lastname = test.fieldByName('lastname');
-		var id = test.fieldByName('id');
-
-		data.push({
-			firstname : name,
-			lastname : state,
-			title : firstname + " " + lastname,
-			id : id
-		});
-		test.next();
-	};
-	return data;
-};
 
 var holder = Titanium.UI.createScrollView({
 	backgroundColor: "#7f93cc",
@@ -58,6 +39,15 @@ Cloud.Users.query({
             	text: user.first_name + " " + user.last_name,
             	color: "#000"
             });	
+            var add = Ti.UI.createButton({
+            	first: user.first_name,
+            	last: user.last_name,
+            	title: "Add+",
+            	text: "Add+",
+            	bottom: "10%",
+            	right: "10%",
+            });
+            
             var row = Ti.UI.createView({
             	backgroundColor: "#FFF",
             	height: "20%",
@@ -71,18 +61,16 @@ Cloud.Users.query({
             	left: 10,
             	width: "35%"
             });
+            row.add(add);
             row.add(image);
             row.add(label);
             holder.add(row);
-            /////////////////////////////////////////////////////////////////////////////////////
-            //																				   //
-            //Was unable to finish the CRUD part. Ran out of time and used the wrong view type.//
-            //																				   //
-            /////////////////////////////////////////////////////////////////////////////////////
-            row.addEventListener("click", function(e){
-            	dataB.execute("INSERT INTO user(firstname,lastname,) VALUES (?,?)", e.user.first_name, e.user.last_name);
+            add.addEventListener("click", function(e){
+            	//console.log(e.source.first + " " + e.source.last);
+            	var first = e.source.first;
+            	var last = e.source.last;
+            	dataB.execute("INSERT INTO user(firstname,lastname) VALUES (?,?)", first, last);
             });
-            table.setData(buildRow());
 		}
     } else {
         alert('Error:\n' +
@@ -90,6 +78,23 @@ Cloud.Users.query({
     }
 });
 
+var list = Ti.UI.createButton({
+	title: "Friends List",
+	text: "Friends List",
+	top: "10%",
+	right: "5%",
+});
+
+list.addEventListener("click", function(){
+	var crudWin = Ti.UI.createWindow({
+		title: "Friends List",
+		backgroundColor: "#FFF",
+		url: "CRUD.js"
+	});
+	crudWin.open();
+});
+
+currentWin.add(list);
 currentWin.add(header);
 currentWin.add(holder);
 //currentWin.add(cam);

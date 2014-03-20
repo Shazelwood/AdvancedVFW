@@ -1,0 +1,12 @@
+var currentWin = Ti.UI.currentWindow;
+
+var panel = Ti.UI.createView({
+	backgroundColor: "#000",
+	left: 0,
+	width: 100,
+	top: 30,
+	bottom: 0,
+	layout: "vertical"
+});
+
+currentWin.add(panel);

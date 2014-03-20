@@ -1,10 +1,12 @@
 =run
 Android\ Emulator\ Process\:ConsoleLogLevel=Info
 Cloud\:launchMode=run
-Cloud\:launchShortcut=com.appcelerator.titanium.mobile.ui.ios.simulator.iphone.launchShortcut.iPhone Retina (4 inch)
+Cloud\:launchShortcut=com.appcelerator.titanium.mobile.ui.ios.simulator.iphone.launchShortcut.iPhone Retina (4 inch 64-bit)
 Hierarchy\:launchMode=run
 Hierarchy\:launchShortcut=com.appcelerator.titanium.mobile.ui.ios.simulator.ipad.launchShortcut.iPad
-LAST_LAUNCH_TIMESTAMP=1394800440180
+LAST_LAUNCH_TIMESTAMP=1395251997139
+MyGym\:launchMode=run
+MyGym\:launchShortcut=com.appcelerator.titanium.mobile.ui.ios.simulator.iphone.launchShortcut.iPhone Retina (4 inch 64-bit)
 NYTimesGEO\:launchMode=run
 NYTimesGEO\:launchShortcut=com.appcelerator.titanium.mobile.ui.ios.simulator.ipad.launchShortcut.iPad
 eclipse.preferences.version=1

@@ -1,0 +1,21 @@
+var dataB = Ti.Database.open("UserDB");
+dataB.execute("CREATE TABLE IF NOT EXISTS user(id INTEGER PRIMARY KEY, firstname TEXT, lastname TEXT)");
+var buildRow = function () {
+	var data = [];
+	var test = dataB.execute("SELECT * FROM user");
+	
+	while (test.isValidRow()) {
+		var firstname = test.fieldByName('firstname');
+		var lastname = test.fieldByName('lastname');
+		var id = test.fieldByName('id');
+
+		data.push({
+			firstname : name,
+			lastname : state,
+			title : firstname + " " + lastname,
+			id : id
+		});
+		test.next();
+	};
+	return data;
+};

@@ -1,7 +1,0 @@
-//Window Start
-var favWin = Ti.UI.createWindow({
-	title : 'Stored',
-	backgroundColor : '#fff'
-});
-exports.favWin = favWin;
-//Window End

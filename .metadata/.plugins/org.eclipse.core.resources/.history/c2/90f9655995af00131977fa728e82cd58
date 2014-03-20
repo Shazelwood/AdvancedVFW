@@ -1,0 +1,26 @@
+var mainWin = Ti.UI.createWindow({
+	Title: "My Gym",
+	backgroundColor: "#FFF",
+});
+
+var getnetworkstate = function(){
+	if(Titanium.Network.online){
+	     var alertDialog = Titanium.UI.createAlertDialog({
+         	title: 'WARNING!',
+         	message: 'Your device is online.',
+         	buttonNames: ['OK']
+       	});
+		alertDialog.show();
+	}else {
+	    var alertDialog = Titanium.UI.createAlertDialog({
+        	title: 'WARNING!',
+          	message: 'Your device is not online.',
+          	buttonNames: ['OK'] 
+        });
+	  	alertDialog.show();
+	}
+};
+
+getnetworkstate();
+
+mainWin.open();

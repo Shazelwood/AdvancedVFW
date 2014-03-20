@@ -1,0 +1,43 @@
+var mainWin = Ti.UI.createWindow({
+	Title: "My Gym",
+	backgroundColor: "#FFF",
+});
+
+var landing = Ti.UI.createView({
+	backgroundColor: "#ff6666",
+	height: Ti.UI.FILL,
+	width: Ti.UI.FILL
+});
+
+var label = Ti.UI.createLabel({
+	text: "MYGYM",
+	top: "40dp",
+	font:{
+		fontSize: 60,
+		fontFamily: "Helvetica Neue UltraThin"
+	},
+	color: "#000"
+});
+
+var getnetworkstate = function(){
+	if(Titanium.Network.online){
+	     var alertDialog = Titanium.UI.createAlertDialog({
+         	title: 'WARNING!',
+         	message: 'Your device is online.',
+         	buttonNames: ['OK']
+       	});
+		alertDialog.show();
+	}else {
+	    var alertDialog = Titanium.UI.createAlertDialog({
+        	title: 'WARNING!',
+          	message: 'Your device is not online.',
+          	buttonNames: ['OK'] 
+        });
+	  	alertDialog.show();
+	}
+};
+
+getnetworkstate();
+landing.add(label);
+mainWin.add(landing);
+mainWin.open();
