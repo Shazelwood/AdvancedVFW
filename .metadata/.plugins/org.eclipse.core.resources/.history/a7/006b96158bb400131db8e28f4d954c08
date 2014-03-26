@@ -1,0 +1,263 @@
+var currentWin = Ti.UI.currentWindow;
+
+Ti.include("JSON.js"); 
+////////////////////////////////////// PANEL ////////////////////////////////////// 
+var panel = Ti.UI.createView({
+	backgroundColor: "#fc6060",
+	left: "0dp",
+	width: "100dp",
+	top: "24dp",
+	bottom: "0dp",
+	layout: "vertical"
+});
+
+var workout = Ti.UI.createView({
+	width: "100dp",
+	height: "125dp",
+	backgroundColor: "#000",
+	layout: "vertical"
+	
+});
+
+var workoutIcon = Ti.UI.createImageView({
+	image:"images/workout_07.png"
+});
+
+var workoutLabel = Ti.UI.createLabel({
+	text: "WORKOUT",
+	top: "5dp",
+	color: "#fc6060",
+	font:{
+		fontSize: "18dp"
+	},
+	
+});
+
+workout.add(workoutIcon);
+workout.add(workoutLabel);
+
+workout.addEventListener("click", function(){
+	var workoutWin = Ti.UI.createWindow({
+		title: "Gallery",
+		backgroundColor: "#FFF",
+		url:"SQL.js"
+	});
+	workoutWin.open();
+});
+
+var search = Ti.UI.createView({
+	width: "100dp",
+	height: "125dp",
+	backgroundColor: "#000",
+	layout: "vertical"
+});
+
+var searchIcon = Ti.UI.createImageView({
+	image:"images/search_03.png"
+});
+
+var searchLabel = Ti.UI.createLabel({
+	text: "SEARCH",
+	top: "5dp",
+	color: "#fc6060",
+	font:{
+		fontSize: "18dp"
+	},
+	
+});
+
+search.add(searchIcon);
+search.add(searchLabel);
+
+search.addEventListener("click", function(){
+	var searchWin = Ti.UI.createWindow({
+		title: "Gallery",
+		backgroundColor: "#FFF",
+		url:"search.js"
+	});
+	searchWin.open();	
+});
+
+var camera = Ti.UI.createView({
+	width: "100dp",
+	height: "125dp",
+	backgroundColor: "#000",
+	layout: "vertical"
+});
+
+var cameraIcon = Ti.UI.createImageView({
+	image:"images/camera_03.png"
+});
+
+var cameraLabel = Ti.UI.createLabel({
+	text: "CAMERA",
+	top: "5dp",
+	color: "#fc6060",
+	font:{
+		fontSize: "18dp"
+	},
+	
+});
+
+camera.add(cameraIcon);
+camera.add(cameraLabel);
+
+camera.addEventListener("click", function(){
+	var galleryWin = Ti.UI.createWindow({
+		title: "Gallery",
+		backgroundColor: "#FFF",
+		url:"gallery.js"
+	});
+	galleryWin.open();
+});
+
+panel.add(workout);
+panel.add(camera);
+panel.add(search);
+
+////////////////////////////////////// END PANEL //////////////////////////////////////
+
+
+////////////////////////////////////// MAN //////////////////////////////////////
+var manHolder = Ti.UI.createView({
+	backgroundColor: "#FFF",
+	top: 30,
+	right: 0,
+	bottom: 0,
+	width: 650,
+});
+
+var man = Ti.UI.createView({
+	width: 520,
+	height: 970,
+	backgroundImage: "images/man_03.png"
+});
+
+var RArm = Ti.UI.createView({
+	top: 188,
+	left: 84,
+	height:440,
+	width:165
+});
+
+var chest = Ti.UI.createView({
+	top: 188,
+	left: 84 + 165,
+	height: 120,
+	width: 190
+});
+
+var LArm = Ti.UI.createView({
+	top: 188,
+	right: 84,
+	height:440,
+	width:165
+});
+
+var abs = Ti.UI.createView({
+	top: 188 + 120,
+	left: chest.left,
+	height:230,
+	width:190
+});
+
+var legs = Ti.UI.createView({
+	top: abs.top + 230,
+	left: chest.left,
+	height:440,
+	width:190
+});
+
+RArm.addEventListener("click", function(){
+	var armWin = Ti.UI.createWindow({
+		title: "ARM",
+		backgroundColor: "#FFF",
+		url: "arm.js"
+	});
+	armWin.open();
+});
+LArm.addEventListener("click", function(){
+	var armWin = Ti.UI.createWindow({
+		title: "ARM",
+		backgroundColor: "#FFF",
+		url: "arm.js"
+	});
+	armWin.open();
+});
+chest.addEventListener("click", function(){
+	chestWin = Ti.UI.createWindow({
+		title: "CHEST",
+		backgroundColor: "#FFF",
+		url: "chest.js"
+	});
+	chestWin.open();
+});
+abs.addEventListener("click", function(){
+	absWin = Ti.UI.createWindow({
+		title: "ABS",
+		backgroundColor: "#FFF",
+		url: "abs.js"
+	});
+	absWin.open();
+});
+legs.addEventListener("click", function(){
+	legsWin = Ti.UI.createWindow({
+		title: "LEGS",
+		backgroundColor: "#FFF",
+		url: "legs.js"
+	});
+	legsWin.open();
+});
+
+var frontSelection = Ti.UI.createView({
+	bottom: 150,
+	height: "26dp",
+	width: "26dp",
+	borderRadius: "13dp",
+	right: 125,
+	backgroundColor: "#fff",
+	borderColor: "#fc6060",
+	borderWidth: "5dp"
+});
+
+var frontSelectionLabel = Ti.UI.createLabel({
+	text: "FRONT",
+	font: {
+		fontSize: 20
+	},
+	bottom: frontSelection.bottom,
+	right: frontSelection.right - 80
+});
+
+var backSelection = Ti.UI.createView({
+	bottom: frontSelection.bottom - 50,
+	height: frontSelection.height,
+	width: frontSelection.width,
+	borderRadius: frontSelection.borderRadius,
+	right: frontSelection.right,
+	backgroundColor: "#fc6060"//frontSelection.backgroundColor,
+});
+
+var backSelectionLabel = Ti.UI.createLabel({
+	text: "BACK",
+	font: {
+		fontSize: 20
+	},
+	bottom: backSelection.bottom,
+	right: backSelection.right - 65
+});
+
+manHolder.add(backSelectionLabel);
+manHolder.add(frontSelectionLabel);
+manHolder.add(backSelection);
+manHolder.add(frontSelection);
+manHolder.add(man);
+manHolder.add(LArm);
+manHolder.add(RArm);
+manHolder.add(chest);
+manHolder.add(abs);
+manHolder.add(legs);
+
+////////////////////////////////////// END MAN //////////////////////////////////////
+currentWin.add(manHolder);
+currentWin.add(panel);

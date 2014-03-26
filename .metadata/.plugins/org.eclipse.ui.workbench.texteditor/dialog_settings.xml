@@ -5,16 +5,16 @@
 		<item value="false" key="casesensitive"/>
 		<item value="false" key="isRegEx"/>
 		<item value="false" key="wholeword"/>
-		<item value="color:&apos;#fff&apos;," key="selection"/>
+		<item value="timesTable" key="selection"/>
 		<list key="findhistory">
-			<item value="color:&apos;#fff&apos;,"/>
-			<item value="population"/>
-			<item value="teamTable.setData(buildRow());"/>
-			<item value="data"/>
-			<item value="pop"/>
-			<item value="tableData"/>
-			<item value="table"/>
-			<item value="wowData"/>
+			<item value="timesTable"/>
+			<item value="borderRadius: &quot;#fc6060&quot;,"/>
+			<item value="transform: tr"/>
+			<item value="cameraLabel"/>
+			<item value="arm"/>
+			<item value="red"/>
+			<item value="{step1: &quot;&quot; },&#x0A;&#x09;&#x09;&#x09;&#x09;&#x09;{step2: &quot;&quot; },&#x0A;&#x09;&#x09;&#x09;&#x09;&#x09;{step3: &quot;&quot; },&#x0A;&#x09;&#x09;&#x09;&#x09;&#x09;{step4: &quot;&quot; },&#x0A;&#x09;&#x09;&#x09;&#x09;&#x09;{step5: &quot;&quot; }"/>
+			<item value=":"/>
 		</list>
 	</section>
 </section>

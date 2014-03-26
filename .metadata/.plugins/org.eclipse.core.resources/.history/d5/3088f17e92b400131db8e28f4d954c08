@@ -1,0 +1,37 @@
+var currentWin = Ti.UI.currentWindow;
+
+//Search Bar Start
+var searchbar = Ti.UI.createSearchBar({
+	top : 0,
+	hintText : 'Search',
+	barColor : '#fff'
+});
+//Search Bar End
+
+//Table Start
+var timesTable = Ti.UI.createTableView({
+	search : searchbar,
+	font : {
+		fontStyle : 'Helvetica',
+		fontSize : 18
+	}
+});
+//Table End
+
+//timesTable evt listener start
+timesTable.addEventListener('click', function(e) {
+	//calling vraibles from api start
+	var name, pop, dist, longitude, latitude, county, st, cp;
+
+	name = e.rowData.name;
+	county = e.rowData.county;
+	pop = e.rowData.population;
+	dist = e.rowData.distance;
+	longitude = e.rowData.lng;
+	latitude = e.rowData.lat;
+	st = e.rowData.st;
+	cp = e.rowData.cp;
+	//calling vraibles from api end
+});
+
+currentWin.add(timesTable);

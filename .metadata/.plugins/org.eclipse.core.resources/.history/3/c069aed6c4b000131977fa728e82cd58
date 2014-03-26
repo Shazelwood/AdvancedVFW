@@ -1,0 +1,334 @@
+var arm = {
+	"biceps": {			
+		"headerTitle": "Biceps",
+		"footerTitle": "Workout for Biceps",
+		"rowData": [
+			{	name: "Hammer Curl", 
+				image: "http://www.bodybuilding.com/exercises/exerciseImages/sequences/147/Male/m/147_1.jpg",
+				image2: "http://www.bodybuilding.com/exercises/exerciseImages/sequences/147/Male/m/147_2.jpg",
+				explaination: [
+				
+					{step1: "Stand up with your torso upright and a dumbbell on each hand being held at arms length. The elbows should be close to the torso."},
+					{step2: "The palms of the hands should be facing your torso. This will be your starting position."},
+					{step3: "Exhale and curl the weight making sure to only bend at the elbows and fully contract your biceps. Weights should be around shoulder level. Hold for a brief moment."},
+					{step4: "After the brief pause, inhale and slowly begin the lower the dumbbells back down to the starting position."},
+					{step5: "Repeat for the recommended amount of repetitions."},
+				],
+				tips: "You can perform the exercise sitting down on a bench with or without back support and you can also perform it by alternating arms.",
+				 },
+			{	name: "Barbell Curl", 
+				image: "http://www.bodybuilding.com/exercises/exerciseImages/sequences/169/Male/m/169_1.jpg", 
+				image2: "http://www.bodybuilding.com/exercises/exerciseImages/sequences/169/Male/m/169_2.jpg",
+				explaination:[
+					{step1:"Stand up straight holding the bar with palms facing outward and elbows close to torso."},
+					{step2:"Curl the weight forward, bending at the elbow while exhaling."},
+					{step3:"Once the bar is at shoulder level and biceps are fully contracted, hold for a brief moment."},
+					{step4:"SLowly return to starting position as you inhale."},
+					{step5:"Repeat for the recommended amount of repetitions."},
+				],
+				tips: "",
+				},
+			{	name: "Dumbbell Curl", 
+				image: "http://www.bodybuilding.com/exercises/exerciseImages/sequences/223/Male/m/223_1.jpg", 
+				image2: "http://www.bodybuilding.com/exercises/exerciseImages/sequences/223/Male/m/223_2.jpg",
+				explaination: [
+					{step1:"Stand straight up with dumbbells in each hand at arm's length keeping your elbows close to your torso and palms facing forward."},
+					{step2:"Curl the weight forward, bending at the elbow while exhaling."},
+					{step3:"While inhaling, slowly lower the weight back to starting position."},
+					{step4:"Repeat."},
+				],
+				tips: "",
+				},
+			{	name: "Concentration Curl", 
+				image: "http://www.bodybuilding.com/exercises/exerciseImages/sequences/136/Male/m/136_1.jpg", 
+				image2: "http://www.bodybuilding.com/exercises/exerciseImages/sequences/136/Male/m/136_2.jpg",
+				explaination: [
+					{step1:"Sit down on a flaft bench with dumbell between legs. Keep knees bent and feet resting flat on the ground."},
+					{step2:"Picking up the dumbell with either arm. Place the back of that arm, right above the elbow, on top of the inner thigh. Having the palm facing away from the thigh you are on."},
+					{step3:"Curl the weight forward while only bending at the elbow. Continue this movement until your biceps are fully contracted and hold for a few seconds."},
+					{step4:"Slowly bring the wieght back down while inhaling. Try to avoid swinging the weight."},
+					{step5:"Repeat and then switch arms."},
+				],
+				tips: "",
+				},
+		]
+	},
+	"triceps": {
+		"headerTitle": "Triceps",
+		"footerTitle": "Workout for Triceps",
+		"rowData": [
+			{	name: "Bench Dips", 
+				image: "http://www.bodybuilding.com/exercises/exerciseImages/sequences/344/Male/m/344_1.jpg", 
+				image2: "http://www.bodybuilding.com/exercises/exerciseImages/sequences/344/Male/m/344_2.jpg",
+				explaination: [
+					{step1:"Place a bench perpendicularly behind you. While facing away from the bench, hold on to the edge with arms extended, sperated at shoulder width. Legs should be extended forward and body bent at the hips."},
+					{step2:"Slowly lower yourself while inhaling only bending at the elbows until your elbow and forearm form a 90 degree angle or less."},
+					{step3:"Using your triceps, push your body back to the starting position."},
+					{step4:"Repeat."},
+				],
+				tips: "",
+				},
+			{	name: "Extensions", 
+				image: "http://www.bodybuilding.com/exercises/exerciseImages/sequences/324/Male/m/324_1.jpg", 
+				image2: "http://www.bodybuilding.com/exercises/exerciseImages/sequences/324/Male/m/324_2.jpg",
+				explaination: [
+					{step1:"Either standing straight or sitting on a bench with back support."},
+					{step2:"Carefully extend arm with weight above your head so that the arm is perpendicular to the ground."},
+					{step3:"With palms facing forward, slowly lower the dumbbell behind the headand inhale, only bending at the elbow. Stop when triceps are extended"},
+					{step4:"While exhaling, using your triceps, return the dumbbell to the starting position."},
+					{step5:"Repeat as necessary then switch arms."},
+				],
+				tips: "",
+				},
+			{	name: "Lying Press", 
+				image: "http://www.bodybuilding.com/exercises/exerciseImages/sequences/342/Male/m/342_1.jpg", 
+				image2: "http://www.bodybuilding.com/exercises/exerciseImages/sequences/342/Male/m/342_2.jpg",
+				explaination: [
+					{step1:"Lie on a flat bench with a bar placed on the floor behind your head."},
+					{step2:"Grab the bar with palms facing up and bring the bar in front of you with arms extended. Arms are now perpendicular with body."},
+					{step3:"While inhaling bring the bar close to forhead, bending only at the elbows."},
+					{step4:"Using your triceps, bring the weight back to the starting position as you exhale."},
+					{step5:"Repeat."},
+				],
+				tips: "",
+				},
+			{	name: "V-Bar Pushdown", 
+				image: "http://www.bodybuilding.com/exercises/exerciseImages/sequences/143/Male/m/143_1.jpg", 
+				image2: "http://www.bodybuilding.com/exercises/exerciseImages/sequences/143/Male/m/143_2.jpg",
+				explaination: [
+					{step1:"Attatch a V-Bar to a cable, stand straight and lean torso forward slightly. Grab the V-Bar with palms facing down and upper arm close to the body and perpendicular to the floor."},
+					{step2:"Using your triceps, exhale as you bring the bar down to your thighs. Arms should be fully extended and perpendicular to the floor. "},
+					{step3:"Then slowly bring the V-Bar up to the starting position as you inhale."},
+					{step4:"Repeat"},
+				],
+				tips: "",
+				},
+		]
+	},
+	"forearms": {
+		"headerTitle": "Forearms",
+		"footerTitle": "Workout for Forearms",
+		"rowData": [
+			{	name: "Wrist Curl", 
+				image: "http://www.bodybuilding.com/exercises/exerciseImages/sequences/2/Male/m/2_1.jpg", 
+				image2: "http://www.bodybuilding.com/exercises/exerciseImages/sequences/2/Male/m/2_2.jpg",
+				explaination: [
+					{step1: "" },
+					{step2: "" },
+					{step3: "" },
+					{step4: "" },
+					{step5: "" }
+				],
+				tips: "",
+				},
+			{	name: "forarem workout", 
+				image: "", 
+				image2: "",
+				explaination: [
+					{step1: "" },
+					{step2: "" },
+					{step3: "" },
+					{step4: "" },
+					{step5: "" }
+				],
+				tips: "",
+				},
+			{	name: "forearworkout", 
+				image: "", 
+				image2: "",
+				explaination: [
+					{step1: "" },
+					{step2: "" },
+					{step3: "" },
+					{step4: "" },
+					{step5: "" }
+				],
+				tips: "",
+				},
+			{	name: "forearm workout", 
+				image: "", 
+				image2: "",
+				explaination: [
+					{step1: "" },
+					{step2: "" },
+					{step3: "" },
+					{step4: "" },
+					{step5: "" }
+				],
+				tips: "",
+				},
+		]
+		
+	}
+};
+
+var chest = {
+	"chest":{		
+		"headerTitle": "Chest",
+		"footerTitle": "Workout for Chest",
+		"rowData": [
+			{	name: "Bench Press", 
+				image: "", 
+				image2: "",
+				explaination: [
+					{step1: "" },
+					{step2: "" },
+					{step3: "" },
+					{step4: "" },
+					{step5: "" }
+				],
+				tips: "",
+				},
+			{	name: "Butterfly", 
+				image: "", 
+				image2: "",
+				explaination: [
+					{step1: "" },
+					{step2: "" },
+					{step3: "" },
+					{step4: "" },
+					{step5: "" }
+				],
+				tips: "",
+				},
+			{	name: "Cable Crossover", 
+				image: "", 
+				image2: "",
+				explaination: [
+					{step1: "" },
+					{step2: "" },
+					{step3: "" },
+					{step4: "" },
+					{step5: "" }
+				],
+				tips: "",
+				},
+			{	name: "Incline Bench Press", 
+				image: "", 
+				image2: "",
+				explaination: [
+					{step1: "" },
+					{step2: "" },
+					{step3: "" },
+					{step4: "" },
+					{step5: "" }
+				],
+				tips: "",
+				},
+		]
+	}
+};
+
+var abs = {
+	"Abs":{		
+		"headerTitle": "Abs",
+		"footerTitle": "Workout for Abs",
+		"rowData": [
+			{	name: "Hip Raise", 
+				image: "", 
+				image2: "",
+				explaination: [
+					{step1: "" },
+					{step2: "" },
+					{step3: "" },
+					{step4: "" },
+					{step5: "" }
+				],
+				tips: "",
+				},
+			{	name: "Crunches", 
+				image: "", 
+				image2: "",
+				explaination: [
+					{step1: "" },
+					{step2: "" },
+					{step3: "" },
+					{step4: "" },
+					{step5: "" }
+				],
+				tips: "",
+				},
+			{	name: "Side Bend", 
+				image: "", 
+				image2: "",
+				explaination: [
+					{step1: "" },
+					{step2: "" },
+					{step3: "" },
+					{step4: "" },
+					{step5: "" }
+				],
+				tips: "",
+				},
+			{	name: "Side Plank", 
+				image: "", 
+				image2: "",
+				explaination: [
+					{step1: "" },
+					{step2: "" },
+					{step3: "" },
+					{step4: "" },
+					{step5: "" }
+				],
+				tips: "",
+				},
+		]
+	}
+};
+
+var legs = {
+	"legs":{		
+		"headerTitle": "Legs",
+		"footerTitle": "Workout for Legs",
+		"rowData": [
+			{	name: "Lunges", 
+				image: "", 
+				image2: "",
+				explaination: [
+					{step1: "" },
+					{step2: "" },
+					{step3: "" },
+					{step4: "" },
+					{step5: "" }
+				],
+				tips: "",
+				},
+			{	name: "Squats", 
+				image: "", 
+				image2: "",
+				explaination: [
+					{step1: "" },
+					{step2: "" },
+					{step3: "" },
+					{step4: "" },
+					{step5: "" }
+				],
+				tips: "",
+				},
+			{	name: "Leg Press", 
+				image: "", 
+				image2: "",
+				explaination: [
+					{step1: "" },
+					{step2: "" },
+					{step3: "" },
+					{step4: "" },
+					{step5: "" }
+				],
+				tips: "",
+				},
+			{	name: "Leg Extensions", 
+				image: "", 
+				image2: "",
+				explaination: [
+					{step1: "" },
+					{step2: "" },
+					{step3: "" },
+					{step4: "" },
+					{step5: "" }
+				],
+				tips: "",
+				},
+		]
+	}
+};

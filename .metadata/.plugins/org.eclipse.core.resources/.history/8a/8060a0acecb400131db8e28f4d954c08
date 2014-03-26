@@ -1,0 +1,62 @@
+var currentWin = Ti.UI.currentWindow;
+
+Ti.include("JSON.js");
+
+
+for(var n in search){
+	console.log(search[0]);
+};
+
+var button1 = Ti.UI.createButton({
+	title: "BACK",
+	color: "#1f1f1f",
+	top: "40dp",
+	left: "20dp"
+});
+
+button1.addEventListener("click", function(){
+	currentWin.close();
+});
+
+Ti.include("JSON.js");
+
+var tableHolder = Ti.UI.createView({
+	backgroundColor: "red",
+	top: "150dp",
+	bottom: "0dp"
+});
+//Search Bar Start
+var searchbar = Ti.UI.createSearchBar({
+	hintText : 'Search',
+	barColor : '#fff'
+});
+//Search Bar End
+
+//Table Start
+var timesTable = Ti.UI.createTableView({
+	top: 150,
+	search : searchbar,
+	font : {
+		fontStyle : 'Helvetica',
+		fontSize : 18
+	}
+});
+//Table End
+
+//timesTable evt listener start
+timesTable.addEventListener('click', function(e) {
+	//calling vraibles from api start
+	var name, pop, dist, longitude, latitude, county, st, cp;
+
+	name = e.rowData.name;
+	county = e.rowData.county;
+	pop = e.rowData.population;
+	dist = e.rowData.distance;
+	longitude = e.rowData.lng;
+	latitude = e.rowData.lat;
+	st = e.rowData.st;
+	cp = e.rowData.cp;
+	//calling vraibles from api end
+});
+currentWin.add(timesTable);
+currentWin.add(button1);

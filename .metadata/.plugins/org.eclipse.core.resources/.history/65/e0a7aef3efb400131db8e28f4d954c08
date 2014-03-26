@@ -1,0 +1,72 @@
+var currentWin = Ti.UI.currentWindow;
+
+Ti.include("JSON.js");
+
+var theSections = [];
+
+for(var n in search){
+	var tableSection = Ti.UI.createTableViewSection({
+		headerTitle: search[n].headerTitle,
+	});
+	for ( var i = 0, j = search[n].rowData.length; i < j ; i++){
+		var theRow = Ti.UI.createTableViewRow({
+			color: "#fc6060",
+			font:{
+				color: "#FFF"
+			},
+			header: search[n].headerTitle,
+			title: search[n].rowData[i].name,
+			steps: search[n].rowData[i].explaination,
+			start: search[n].rowData[i].image,
+			finish: search[n].rowData[i].image2,
+			hasChild: true
+		});
+		//console.log(legs[n].rowData[i].explaination.length);
+		tableSection.add(theRow);
+	// console.log(search[n].headerTitle);
+	// console.log(search[n].rowData);
+	};
+	theSections.push(tableSection);
+};
+table.setData(theSections);
+
+var button1 = Ti.UI.createButton({
+	title: "BACK",
+	color: "#1f1f1f",
+	top: "40dp",
+	left: "20dp"
+});
+
+button1.addEventListener("click", function(){
+	currentWin.close();
+});
+
+Ti.include("JSON.js");
+
+var tableHolder = Ti.UI.createView({
+	backgroundColor: "red",
+	top: "150dp",
+	bottom: "0dp"
+});
+//Search Bar Start
+var searchbar = Ti.UI.createSearchBar({
+	hintText : 'Search',
+	barColor : '#fff'
+});
+//Search Bar End
+
+
+var table = Ti.UI.createTableView({
+	top: 150,
+	search : searchbar,
+	font : {
+		fontStyle : 'Helvetica',
+		fontSize : 18
+	}
+});
+
+table.addEventListener('click', function(e) {
+	
+});
+currentWin.add(table);
+currentWin.add(button1);
